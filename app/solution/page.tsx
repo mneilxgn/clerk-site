@@ -27,6 +27,35 @@ const mono = 'IBM Plex Mono, monospace';
 const phases = [
   {
     num: '01',
+    name: 'Laser Nudge',
+    band: 'ALL ALTITUDES',
+    feasibility: 'HIGH — ALREADY DEMONSTRATED',
+    feasibilityPct: 88,
+    equation: `Method: pulsed laser from ground station
+Contact: none
+Power: 100kW ground array
+Effect per pass: ~1mm/s velocity change
+Target: tracked debris 500–2,000 km`,
+    body: `A ground-based laser fires short, high-power pulses at a tracked piece of debris as it passes overhead. Each pulse vaporises a tiny amount of surface material — that vapour jets outward, pushing the object in the opposite direction.
+
+It's slow and deliberate. But it doesn't need to stop the debris entirely. It just needs to nudge it — lowering its orbit by a few kilometres until it enters the xenon gas cloud at 500–600 km.
+
+Laser ablation is already demonstrated physics. Ground stations exist. The targeting is proven. This is the precision layer of Kepler 13.`,
+    svgPath: 'M100,150 L350,50 L700,150',
+    extra: {
+      problemTitle: 'THE STRATEGIC ROLE',
+      problem: `The laser is not trying to deorbit debris by itself. That would take years of passes and enormous power. Its only job is to push debris from higher orbits into the 500–600 km corridor where the gas cloud operates. A drop of just 50–200 km is enough. That is achievable in weeks, not years.`,
+      methodTitle: 'METHOD // GROUND-BASED LASER ARRAY',
+      methodTag: 'PROVEN PHYSICS',
+      method: `A network of ground stations — ideally at multiple latitudes — track known debris objects and fire timed pulses during each overhead pass. Each pass delivers a small Δv. After enough passes, the debris orbit decays into the gas drag zone.
+
+The transparency problem is real: firing lasers at objects in orbit is politically sensitive. Clerk publishes its full target list, firing schedule, and predicted trajectories publicly before every session. Full transparency is the political solution.
+
+Ground-based laser ablation has been demonstrated in laboratory conditions. The hardware exists. The physics is settled. The remaining challenge is scale and political coordination — not feasibility.`,
+    },
+  },
+  {
+    num: '02',
     name: 'Gas Drag',
     band: '500–600 KM',
     feasibility: 'HIGH',
@@ -36,69 +65,31 @@ Method: xenon gas injection
 Contact: none
 Coverage: thousands of objects at once
 Replenishment: every few days`,
-    body: `At 500–600km, the upper atmosphere is almost nothing — but not quite. We release a controlled cloud of xenon gas into this region, temporarily thickening it.
+    body: `Once debris has been nudged into the 500–600 km corridor by the laser system, it enters the gas cloud. We maintain a persistent xenon gas density in this band — thin enough that it doesn't affect functioning satellites, thick enough to matter for debris.
 
-Debris passing through slows down. Not much — but enough. Over time, small amounts of drag add up and objects gradually spiral inward, re-entering the atmosphere naturally.
+Every fragment that passes through loses a little velocity. Not much — but enough. Over weeks and months, the drag accumulates. The orbit decays. The debris spirals inward and burns up in the atmosphere.
 
-No tracking. No targeting. No physical contact. One release affects thousands of fragments at once. It's the closest thing to a passive cleanup system that physics allows.`,
+No tracking. No contact. No individual targeting. The laser does the precision work; the gas cloud does the scale work. They are designed for each other.`,
     svgPath: 'M100,100 Q250,60 400,100 Q550,140 700,100',
     extra: {
       problemTitle: 'THE CORE PROBLEM',
       problem: `To make gas drag work, you need to get 1,000 to 10,000 kg of inert gas — xenon, argon, or krypton — into a precise orbital corridor at 500 to 600 km altitude, release it in a controlled plume, and do it repeatedly and cheaply enough that the economics still work.`,
-      methodTitle: 'METHOD 01 // DEDICATED GAS PAYLOAD SATELLITES',
+      methodTitle: 'METHOD // DEDICATED GAS PAYLOAD SATELLITES',
       methodTag: 'MOST FEASIBLE',
-      method: `The baseline approach. Small orbital platforms — roughly 200 to 400 kg each — carry pressurised gas tanks and a precision valve release system. They sit in the target orbital band permanently and release metered gas bursts timed to coincide with debris-dense corridor transits.
+      method: `Small orbital platforms — roughly 200 to 400 kg each — carry pressurised gas tanks and a precision valve release system. They sit in the target orbital band permanently and release metered gas bursts timed to coincide with debris-dense corridor transits.
 
 This is essentially the same hardware as an ion propulsion xenon tank, just much larger and venting outward rather than through a thruster nozzle.
 
 A SpaceX Falcon 9 can put roughly 22,000 kg into LEO for about $67M. A single launch could carry multiple gas platforms. The gas itself — industrial xenon — costs roughly $800 to $1,200 per kg on Earth. Getting it to orbit is the expensive part. That is exactly why the economics of this approach are the biggest unresolved challenge.`,
     },
   },
-  {
-    num: '02',
-    name: 'Magnetic Braking',
-    band: '700–900 KM',
-    feasibility: 'MEDIUM-HIGH',
-    feasibilityPct: 74,
-    equation: `Altitude: 700–900km
-Method: conducting tether in Earth's magnetic field
-Contact: none
-Propellant used: zero
-Speed: 10–20× faster than natural decay`,
-    body: `Earth has a magnetic field. A wire moving through a magnetic field generates electricity. That electricity creates a braking force — the same principle behind regenerative braking in electric cars, just in orbit.
-
-We deploy a constellation of satellites with long conducting tethers. As they move through Earth's magnetic field at orbital speed, they generate a drag force that slowly pulls debris down — using no fuel at all.
-
-The planet does the work. We just give it the right tool.`,
-    svgPath: 'M100,120 C200,60 500,180 700,80',
-  },
-  {
-    num: '03',
-    name: 'Laser Nudge',
-    band: 'ALL BANDS',
-    feasibility: 'HIGH (PHYSICS) / MEDIUM (GEOPOLITICS)',
-    feasibilityPct: 80,
-    equation: `Method: pulsed laser from ground or orbit
-Contact: none
-Power: 100kW
-Effect per pass: ~1mm/s slowdown
-After 200 passes: enough to re-enter`,
-    body: `For the most dangerous objects — large, tracked, on a collision course — we need precision. A powerful laser fires short pulses at the debris as it passes overhead.
-
-Each pulse vaporises a tiny amount of surface material, which acts like a micro-thruster pushing the object in the opposite direction. It's slow. It's deliberate. After months of passes, the object has slowed just enough to fall into the upper atmosphere on its own.
-
-No fuel. No contact. Just light.
-
-The one real complication is political: firing a laser at another country's satellite — even dead ones — is sensitive. We publish our target list and schedule publicly. Full transparency is the solution.`,
-    svgPath: 'M100,150 L350,50 L700,150',
-  },
 ];
 
 const timelinePhases = [
-  { num: '01', name: 'Gas Drag Deployment', years: '2027–2028', desc: 'Xenon injection platforms deployed to 500–600km. Initial density enhancement operations begin.', status: 'DEVELOPMENT' },
-  { num: '02', name: 'Tether Constellation', years: '2028–2030', desc: 'Electrodynamic tether nodes deployed to 700–900km band. Ionospheric circuit validation.', status: 'DESIGN' },
-  { num: '03', name: 'Laser Grid Activation', years: '2030–2032', desc: 'Ground and space-based laser assets activated. High-risk object targeting begins under international transparency framework.', status: 'DESIGN' },
-  { num: '04', name: 'Ongoing Operations', years: '2032+', desc: 'Full-band coverage. Self-sustaining debris removal at scale. LEO stabilisation.', status: 'ONGOING' },
+  { num: '01', name: 'Laser Station Deployment', years: '2027–2028', desc: 'Ground-based laser array commissioned. Initial target list published. First precision nudge operations on tracked high-risk objects.', status: 'DEVELOPMENT' },
+  { num: '02', name: 'Gas Cloud Deployment', years: '2027–2028', desc: 'Xenon injection platforms deployed to 500–600km corridor. Gas density brought to operational levels. Laser-nudged debris begins entering the drag zone.', status: 'DEVELOPMENT' },
+  { num: '03', name: 'Combined Operations', years: '2028–2030', desc: 'Laser and gas systems operating in concert. Debris nudged into corridor; gas drag handles mass deorbit. First measurable reduction in fragment density.', status: 'DESIGN' },
+  { num: '04', name: 'LEO Stabilisation', years: '2030+', desc: 'Sustained two-layer operations. New debris generation offset by removal rate. LEO debris density plateau broken for the first time.', status: 'ONGOING' },
 ];
 
 const statusColors: Record<string, string> = {
@@ -140,7 +131,7 @@ export default function Solution() {
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <h1 style={{ fontFamily: syne, fontWeight: 800, fontSize: 'clamp(40px, 6vw, 72px)', lineHeight: 1.05, color: C.textPrimary, maxWidth: '700px' }}>
-              Three layers.<br />One physics problem.<br />Zero contact.
+              Two stages.<br />One physics problem.<br />Zero contact.
             </h1>
           </ScrollReveal>
         </div>
@@ -163,7 +154,7 @@ export default function Solution() {
                 Robotic capture and harpoon systems approach debris removal as an individual object problem. Each piece of debris becomes a separate mission, a separate cost centre, a separate liability.
               </p>
               <p style={{ fontFamily: mono, fontSize: '14px', color: C.textSecondary, lineHeight: 2 }}>
-                With <span style={{ color: C.accent }}>130 million fragments</span> in LEO, this framing makes the problem permanently unsolvable. The physics of Kepler 13 operate at population level, not object level.
+                With <span style={{ color: C.accent }}>130 million fragments</span> in LEO, this framing makes the problem permanently unsolvable. Kepler 13 uses laser precision to feed a passive gas drag system — handling millions of objects at a cost per fragment orders of magnitude lower than any capture approach.
               </p>
             </ScrollReveal>
 
@@ -176,7 +167,7 @@ Harpoon             $50–150M       LINEAR         YES
 Net capture         $75–200M       LIMITED        YES
 Ion beam shepherd   $30–80M        MODERATE       NO
 Laser ablation      $0.5–2M        HIGH           NO
-Kepler 13 (Phase1)  $0.02–0.1M     UNLIMITED      NO`}
+Kepler 13           $0.02–0.1M     UNLIMITED      NO`}
               </div>
             </ScrollReveal>
           </div>
@@ -196,7 +187,7 @@ Kepler 13 (Phase1)  $0.02–0.1M     UNLIMITED      NO`}
               Physics, applied.
             </h2>
             <p style={{ fontFamily: mono, fontSize: '13px', color: C.textTertiary, marginBottom: '48px', maxWidth: '560px', lineHeight: 1.8 }}>
-              Live simulation — select a mechanism to see how each removal method operates in orbit.
+              Live simulation — select a stage to see how the two-layer system works together.
             </p>
           </ScrollReveal>
 
@@ -344,7 +335,7 @@ Kepler 13 (Phase1)  $0.02–0.1M     UNLIMITED      NO`}
               DEPLOYMENT TIMELINE
             </div>
             <h2 style={{ fontFamily: syne, fontWeight: 700, fontSize: 'clamp(28px, 4vw, 44px)', color: C.textPrimary, marginBottom: '64px' }}>
-              Four phases. One mission.
+              Two systems. One mission.
             </h2>
           </ScrollReveal>
 

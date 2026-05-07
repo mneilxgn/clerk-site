@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ marginBottom: '16px' }}>
-              <img src="/clerk-logo-light.png" alt="Clerk" style={{ height: '44px', width: 'auto', display: 'block' }} />
+              <img src="/clerk-logo-light.png" alt="Clerk" style={{ height: '62px', width: 'auto', display: 'block' }} />
             </div>
             <p style={{
               fontFamily: 'IBM Plex Mono, monospace',

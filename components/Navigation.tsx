@@ -43,7 +43,7 @@ export default function Navigation() {
     >
       {/* Wordmark */}
       <Link href="/" style={{ textDecoration: 'none', zIndex: 101, display: 'flex', alignItems: 'center' }}>
-        <img src="/clerk-logo-light.png" alt="Clerk" style={{ height: '48px', width: 'auto', display: 'block' }} />
+        <img src="/clerk-logo-light.png" alt="Clerk" style={{ height: '68px', width: 'auto', display: 'block' }} />
       </Link>
 
       {/* Desktop nav links */}

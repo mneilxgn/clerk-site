@@ -216,7 +216,7 @@ export default function About() {
                   Grade 12 student and TKS Innovator. Encountered the Kessler problem and couldn&apos;t find a satisfying answer to why nothing serious was being done about it. Built Clerk to be that answer.
                 </p>
                 <p style={{ fontFamily: mono, fontSize: '14px', color: C.textSecondary, lineHeight: 2, marginBottom: '32px' }}>
-                  The Kepler 13 system emerged from a simple observation: Earth&apos;s atmosphere, magnetic field, and ionosphere already do the physics. Nobody had committed to building the infrastructure to let them.
+                  The Kepler 13 system emerged from a simple observation: laser ablation is already demonstrated, and Earth&apos;s atmosphere already creates drag. Nobody had committed to connecting the two into a single scalable system.
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                   {['TKS INNOVATOR', 'ORBITAL DEBRIS', 'SYSTEMS DESIGN', 'GRADE 12'].map((tag) => (

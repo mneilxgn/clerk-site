@@ -4,7 +4,11 @@ import Navigation from "@/components/Navigation";
 
 export const metadata: Metadata = {
   title: "Clerk — Orbital Debris Removal",
-  description: "Kepler 13: A contactless, three-layer deorbit system using Earth's natural forces to clear LEO of debris.",
+  description: "Kepler 13: A contactless deorbit system using laser nudge and gas drag to clear LEO of debris.",
+  icons: {
+    icon: '/clerk-logo-light.png',
+    apple: '/clerk-logo-light.png',
+  },
 };
 
 export default function RootLayout({

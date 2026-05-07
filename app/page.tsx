@@ -27,22 +27,16 @@ const mono = 'IBM Plex Mono, monospace';
 
 const solutionCards = [
   {
-    tag: 'PHASE 01 // 500–600KM',
-    headline: 'Gas Drag',
-    body: 'We release a xenon gas cloud into the upper atmosphere. Debris passing through slows down and gradually spirals inward. No contact. No targeting. Thousands of objects at once.',
-    stat: '0.5–5 m/s slowdown per year',
-  },
-  {
-    tag: 'PHASE 02 // 700–900KM',
-    headline: 'Magnetic Braking',
-    body: 'A wire moving through a magnetic field creates drag — the same principle as regenerative braking. We deploy tethers that use Earth\'s own magnetic field to slow debris down. No fuel required.',
-    stat: '10–20× faster than natural decay',
-  },
-  {
-    tag: 'PHASE 03 // ALL BANDS',
+    tag: 'STAGE 01 // ALL ALTITUDES',
     headline: 'Laser Nudge',
-    body: 'For the most dangerous objects, we fire a laser that vaporises a tiny amount of surface material — enough to gradually push the debris toward re-entry. No contact. No propellant. Just light.',
-    stat: '200 mm/s slowdown over months',
+    body: 'A ground-based pulsed laser vaporises a tiny amount of debris surface — enough to push it into a lower orbit. Precision targeting without any physical contact, nudging objects into the gas drag zone.',
+    stat: '~1 mm/s Δv per pass',
+  },
+  {
+    tag: 'STAGE 02 // 500–600KM',
+    headline: 'Gas Drag',
+    body: 'Xenon gas maintained at 500–600 km passively slows every piece of debris that enters the corridor. Once nudged into the zone, objects spiral inward and burn up in the atmosphere. No contact. Thousands at once.',
+    stat: 'Thousands of objects per release',
   },
 ];
 
