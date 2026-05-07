@@ -130,8 +130,8 @@ export default function Solution() {
             </div>
           </ScrollReveal>
           <ScrollReveal delay={100}>
-            <h1 style={{ fontFamily: syne, fontWeight: 800, fontSize: 'clamp(40px, 6vw, 72px)', lineHeight: 1.05, color: C.textPrimary, maxWidth: '700px' }}>
-              Two stages.<br />One physics problem.<br />Zero contact.
+            <h1 style={{ fontFamily: syne, fontWeight: 800, fontSize: 'clamp(36px, 5.5vw, 68px)', lineHeight: 1.10, color: C.textPrimary, maxWidth: '800px' }}>
+              We don&apos;t catch debris.<br />We convince it to fall.
             </h1>
           </ScrollReveal>
         </div>
