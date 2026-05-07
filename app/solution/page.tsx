@@ -102,42 +102,34 @@ export default function Solution() {
   return (
     <main style={{ backgroundColor: C.bg, minHeight: '100vh' }}>
 
-      {/* ── HERO ── */}
-      <section style={{
-        position: 'relative',
-        paddingTop: '160px',
-        paddingBottom: '100px',
-        paddingLeft: '40px',
-        paddingRight: '40px',
-        overflow: 'hidden',
-      }}>
-        {/* Background orbital SVG */}
-        <svg style={{
-          position: 'absolute', top: '50%', right: '-100px',
-          transform: 'translateY(-50%)', width: '600px', height: '400px',
-          opacity: 0.06, pointerEvents: 'none',
-        }} viewBox="0 0 600 400" fill="none">
-          <ellipse cx="300" cy="200" rx="280" ry="160" stroke="white" strokeWidth="1" strokeDasharray="4 6" />
-          <ellipse cx="300" cy="200" rx="200" ry="110" stroke="white" strokeWidth="0.8" strokeDasharray="4 6" />
-          <circle cx="300" cy="200" r="20" stroke="rgba(59,123,255,0.6)" strokeWidth="1" />
-          <circle cx="300" cy="200" r="6" fill="rgba(59,123,255,0.5)" />
-        </svg>
+      {/* ── HERO — full-bleed Earth limb ── */}
+      <section style={{ position: 'relative', height: '65vh', minHeight: '480px', overflow: 'hidden' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'url(/earth-globe.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 40%',
+        }} />
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to right, rgba(8,10,15,0.94) 0%, rgba(8,10,15,0.70) 45%, rgba(8,10,15,0.25) 100%)',
+        }} />
+        <div style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: '200px',
+          background: 'linear-gradient(transparent, #0F1219)',
+          pointerEvents: 'none',
+        }} />
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative' }}>
-          <ScrollReveal>
-            <div style={{ fontFamily: mono, fontSize: '11px', letterSpacing: '0.12em', color: C.accent, marginBottom: '20px' }}>
-              KEPLER 13 // CONTACTLESS DEORBIT SYSTEM
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <h1 style={{ fontFamily: syne, fontWeight: 800, fontSize: 'clamp(36px, 5.5vw, 68px)', lineHeight: 1.10, color: C.textPrimary, maxWidth: '800px' }}>
-              We don&apos;t catch debris.<br />We convince it to fall.
-            </h1>
-          </ScrollReveal>
+        <div style={{ position: 'absolute', bottom: '12%', left: '7%', maxWidth: '700px' }}>
+          <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.16em', color: C.accent, marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ width: '22px', height: '1px', backgroundColor: C.accent }} />
+            KEPLER 13 // CONTACTLESS DEORBIT SYSTEM
+          </div>
+          <h1 style={{ fontFamily: syne, fontWeight: 800, fontSize: 'clamp(40px, 6vw, 76px)', lineHeight: 1.0, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            We don&apos;t catch debris.<br />We convince it to fall.
+          </h1>
         </div>
       </section>
-
-      <div className="section-separator" />
 
       {/* ── WHY CAPTURE IS WRONG ── */}
       <section style={{ backgroundColor: C.surface, padding: '100px 40px' }}>
