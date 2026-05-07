@@ -68,27 +68,22 @@ export default function Home() {
           pointerEvents: 'none',
         }} />
 
-        {/* Spinning Earth — right side */}
+        {/* Spinning Earth — massive, right side, partially bleeds off-screen like SpaceX */}
         <div
           className="earth-globe-hero"
           style={{
             position: 'absolute',
-            right: '-6%',
+            right: '-18%',
             top: '50%',
             transform: 'translateY(-50%)',
-            width: '65vh',
-            height: '65vh',
-            minWidth: '400px',
-            minHeight: '400px',
-            maxWidth: '680px',
-            maxHeight: '680px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            width: '78vh',
+            height: '78vh',
+            minWidth: '480px',
+            minHeight: '480px',
           }}
         >
           <GlobeErrorBoundary>
-            <EarthGlobe size={600} speed={0.0006} />
+            <EarthGlobe />
           </GlobeErrorBoundary>
         </div>
 

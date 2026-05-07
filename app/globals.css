@@ -139,6 +139,12 @@ body {
   background: rgba(59,123,255,0.3);
 }
 
+/* Spinning Earth */
+@keyframes spinEarth {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.334%); }
+}
+
 /* Ken Burns — slow zoom on background images */
 @keyframes kenBurns {
   0%   { transform: scale(1.00) translate(0%, 0%); }
