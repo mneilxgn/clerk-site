@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ClerkLogo from '@/components/ClerkLogo';
 
 export default function Footer() {
   return (
@@ -12,15 +13,8 @@ export default function Footer() {
         }}>
           {/* Brand */}
           <div>
-            <div style={{
-              fontFamily: 'Syne, sans-serif',
-              fontWeight: 800,
-              fontSize: '18px',
-              letterSpacing: '0.15em',
-              color: '#F0F2F5',
-              marginBottom: '16px',
-            }}>
-              CLERK
+            <div style={{ marginBottom: '16px' }}>
+              <ClerkLogo height={40} />
             </div>
             <p style={{
               fontFamily: 'IBM Plex Mono, monospace',
