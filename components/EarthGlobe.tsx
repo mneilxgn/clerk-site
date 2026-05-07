@@ -1,21 +1,23 @@
 'use client';
 
 export default function EarthGlobe() {
-  const size = 'min(90vh, 90vw)';
-
   return (
-    <div style={{ position: 'relative', width: size, height: size }}>
-
-      {/* Outer atmosphere glow */}
+    <div style={{
+      position: 'relative',
+      width: '100%',
+      height: '100%',
+    }}>
+      {/* Outer atmospheric halo */}
       <div style={{
         position: 'absolute',
-        inset: '-4%',
+        inset: '-5%',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, transparent 55%, rgba(40,100,255,0.12) 75%, rgba(20,60,180,0.07) 88%, transparent 100%)',
+        background: 'radial-gradient(circle, transparent 52%, rgba(50,120,255,0.13) 72%, rgba(30,80,200,0.06) 88%, transparent 100%)',
         pointerEvents: 'none',
+        zIndex: 2,
       }} />
 
-      {/* The sphere */}
+      {/* Video sphere */}
       <div style={{
         width: '100%',
         height: '100%',
@@ -23,57 +25,52 @@ export default function EarthGlobe() {
         overflow: 'hidden',
         position: 'relative',
         boxShadow: `
-          0 0 80px rgba(30, 90, 255, 0.30),
-          0 0 200px rgba(20, 60, 200, 0.12)
+          0 0 100px rgba(30, 90, 255, 0.35),
+          0 0 260px rgba(20, 60, 200, 0.15)
         `,
       }}>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        >
+          <source src="/earth-rotation-480.webm" type="video/webm" />
+          <source src="/earth-rotation.webm" type="video/webm" />
+          <source src="/earth-rotation.mov" type="video/quicktime" />
+        </video>
 
-        {/* Scrolling Earth texture — creates rotation illusion */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: '-100%',
-          width: '300%',
-          height: '100%',
-          backgroundImage: 'url(/earth-texture.jpg)',
-          backgroundSize: '33.334% 100%',
-          backgroundRepeat: 'repeat-x',
-          backgroundPosition: '0 50%',
-          animation: 'spinEarth 32s linear infinite',
-          willChange: 'transform',
-        }} />
-
-        {/* Night-side shadow — makes it look like a sphere lit from the left */}
+        {/* Night-side shadow overlay — makes it feel like a lit sphere */}
         <div style={{
           position: 'absolute',
           inset: 0,
           borderRadius: '50%',
           background: `radial-gradient(
-            circle at 32% 38%,
-            rgba(255,255,255,0.03) 0%,
-            transparent 28%,
-            rgba(0,0,0,0.18) 52%,
-            rgba(0,0,0,0.62) 72%,
-            rgba(0,0,0,0.92) 100%
+            circle at 34% 38%,
+            rgba(255,255,255,0.02) 0%,
+            transparent 30%,
+            rgba(0,0,0,0.15) 55%,
+            rgba(0,0,0,0.55) 75%,
+            rgba(0,0,0,0.88) 100%
           )`,
           pointerEvents: 'none',
         }} />
 
-        {/* Atmosphere rim — blue halo at the edges */}
+        {/* Atmosphere rim glow */}
         <div style={{
           position: 'absolute',
           inset: 0,
           borderRadius: '50%',
-          boxShadow: 'inset 0 0 60px rgba(60, 130, 255, 0.22)',
-          pointerEvents: 'none',
-        }} />
-
-        {/* Subtle cloud shimmer */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          borderRadius: '50%',
-          background: 'radial-gradient(circle at 28% 32%, rgba(255,255,255,0.04) 0%, transparent 35%)',
+          boxShadow: 'inset 0 0 60px rgba(60, 140, 255, 0.20)',
           pointerEvents: 'none',
         }} />
       </div>

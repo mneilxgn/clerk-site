@@ -73,13 +73,13 @@ export default function Home() {
           className="earth-globe-hero"
           style={{
             position: 'absolute',
-            right: '-18%',
+            right: '-14%',
             top: '50%',
             transform: 'translateY(-50%)',
-            width: '78vh',
-            height: '78vh',
-            minWidth: '480px',
-            minHeight: '480px',
+            width: '86vh',
+            height: '86vh',
+            minWidth: '560px',
+            minHeight: '560px',
           }}
         >
           <GlobeErrorBoundary>
