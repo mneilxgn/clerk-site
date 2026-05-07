@@ -78,15 +78,23 @@ export default function Home() {
 
           <h1 style={{
             fontFamily: syne, fontWeight: 800,
-            fontSize: 'clamp(52px, 8vw, 96px)',
-            lineHeight: 0.95, color: '#FFFFFF',
-            marginBottom: '28px', letterSpacing: '-0.02em',
+            fontSize: 'clamp(42px, 6.5vw, 82px)',
+            lineHeight: 1.0, color: '#FFFFFF',
+            marginBottom: '20px', letterSpacing: '-0.02em',
           }}>
-            The orbit is<br />already broken.
+            Clearing the path forward<br />for Humanity&apos;s next steps.
           </h1>
 
           <p style={{
-            fontFamily: mono, fontSize: '15px', color: 'rgba(220,225,235,0.70)',
+            fontFamily: mono, fontSize: '13px', color: 'rgba(220,225,235,0.50)',
+            lineHeight: 1.7, marginBottom: '10px', maxWidth: '440px',
+            letterSpacing: '0.04em', textTransform: 'uppercase' as const,
+          }}>
+            The orbit is already broken.
+          </p>
+
+          <p style={{
+            fontFamily: mono, fontSize: '14px', color: 'rgba(220,225,235,0.62)',
             lineHeight: 1.75, marginBottom: '40px', maxWidth: '440px',
           }}>
             9,000 tonnes. 130 million fragments.<br />
