@@ -104,7 +104,7 @@ export default function Solution() {
 
       {/* ── HERO — full-bleed Earth limb ── */}
       <section style={{ position: 'relative', height: '65vh', minHeight: '480px', overflow: 'hidden' }}>
-        <div style={{
+        <div className="ken-burns" style={{
           position: 'absolute', inset: 0,
           backgroundImage: 'url(/earth-globe.jpg)',
           backgroundSize: 'cover',

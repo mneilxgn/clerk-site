@@ -78,14 +78,14 @@ export default function Footer() {
               Contact
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <a href="https://clerk.space" style={{ fontFamily: mono, fontSize: '12px', color: '#8A909C', textDecoration: 'none' }}>
-                clerk.space
+              <a href="https://clerkspace.ca" style={{ fontFamily: mono, fontSize: '12px', color: '#8A909C', textDecoration: 'none' }}>
+                clerkspace.ca
               </a>
-              <a href="mailto:hello@clerk.space" style={{ fontFamily: mono, fontSize: '12px', color: '#8A909C', textDecoration: 'none' }}>
-                hello@clerk.space
+              <a href="mailto:hello@clerkspace.ca" style={{ fontFamily: mono, fontSize: '12px', color: '#8A909C', textDecoration: 'none' }}>
+                hello@clerkspace.ca
               </a>
               <div style={{ fontFamily: mono, fontSize: '12px', color: '#4A5160', marginTop: '4px' }}>
-                @clerk_space
+                @clerkspace
               </div>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function Footer() {
           flexWrap: 'wrap', gap: '12px',
         }}>
           <span style={{ fontFamily: mono, fontSize: '11px', color: '#4A5160' }}>
-            © 2026 Clerk. Named for James Clerk Maxwell.
+            © 2026 Clerk Space Inc. Named for James Clerk Maxwell.
           </span>
           <span style={{ fontFamily: mono, fontSize: '11px', color: '#4A5160' }}>
             KEPLER 13 // PHASE 1 TARGET: 2027

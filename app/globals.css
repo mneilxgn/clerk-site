@@ -138,3 +138,35 @@ body {
 ::selection {
   background: rgba(59,123,255,0.3);
 }
+
+/* Ken Burns — slow zoom on background images */
+@keyframes kenBurns {
+  0%   { transform: scale(1.00) translate(0%, 0%); }
+  50%  { transform: scale(1.07) translate(-1.5%, -1%); }
+  100% { transform: scale(1.00) translate(0%, 0%); }
+}
+.ken-burns {
+  animation: kenBurns 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Slow drift for parallax bg images */
+@keyframes slowDrift {
+  0%   { transform: scale(1.04) translate(0%, 0%); }
+  50%  { transform: scale(1.08) translate(-1%, -1.5%); }
+  100% { transform: scale(1.04) translate(0%, 0%); }
+}
+.slow-drift {
+  animation: slowDrift 25s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Responsive — hide desktop elements on mobile */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: block !important; }
+  .earth-globe-hero { display: none !important; }
+}
+@media (min-width: 769px) {
+  .show-mobile { display: none !important; }
+}

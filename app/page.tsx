@@ -1,9 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import ScrollReveal from '@/components/ScrollReveal';
 import CountUp from '@/components/CountUp';
 import Footer from '@/components/Footer';
+
+const EarthGlobe = dynamic(() => import('@/components/EarthGlobe'), { ssr: false });
 
 const mono = 'IBM Plex Mono, monospace';
 const syne = 'Syne, sans-serif';
@@ -36,40 +39,80 @@ export default function Home() {
   return (
     <main style={{ backgroundColor: '#080A0F' }}>
 
-      {/* ── 1. HERO — full-bleed Earth photo ── */}
-      <section style={{ position: 'relative', height: '100vh', minHeight: '720px', overflow: 'hidden' }}>
+      {/* ── 1. HERO — spinning Earth globe, SpaceX-style ── */}
+      <section style={{ position: 'relative', height: '100vh', minHeight: '720px', overflow: 'hidden', backgroundColor: '#080A0F' }}>
 
-        {/* Earth photo */}
+        {/* Star field background */}
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'url(/earth-hero.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 35%',
-        }} />
-
-        {/* Gradient left-to-right: dark left for text, transparent right to show photo */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(105deg, rgba(8,10,15,0.96) 0%, rgba(8,10,15,0.78) 38%, rgba(8,10,15,0.30) 70%, rgba(8,10,15,0.10) 100%)',
+          backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(30,50,100,0.18) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(20,40,80,0.14) 0%, transparent 50%)',
           pointerEvents: 'none',
         }} />
 
-        {/* Bottom fade into page */}
+        {/* Static star dots via CSS (lightweight, no canvas) */}
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0, height: '280px',
-          background: 'linear-gradient(to top, #080A0F 0%, rgba(8,10,15,0.7) 50%, transparent 100%)',
+          position: 'absolute', inset: 0,
+          backgroundImage: `
+            radial-gradient(1px 1px at 15% 22%, rgba(255,255,255,0.55) 0%, transparent 100%),
+            radial-gradient(1px 1px at 72% 8%, rgba(255,255,255,0.45) 0%, transparent 100%),
+            radial-gradient(1px 1px at 88% 38%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1px 1px at 5% 65%, rgba(255,255,255,0.4) 0%, transparent 100%),
+            radial-gradient(1px 1px at 45% 12%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1px 1px at 60% 80%, rgba(255,255,255,0.35) 0%, transparent 100%),
+            radial-gradient(1px 1px at 33% 90%, rgba(255,255,255,0.45) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 92% 72%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1px 1px at 28% 45%, rgba(255,255,255,0.3) 0%, transparent 100%),
+            radial-gradient(1px 1px at 78% 55%, rgba(255,255,255,0.4) 0%, transparent 100%)
+          `,
           pointerEvents: 'none',
         }} />
 
-        {/* Content — left-aligned, lower third like SpaceX */}
+        {/* Spinning Earth — right side */}
+        <div
+          className="earth-globe-hero"
+          style={{
+            position: 'absolute',
+            right: '-6%',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            width: '65vh',
+            height: '65vh',
+            minWidth: '400px',
+            minHeight: '400px',
+            maxWidth: '680px',
+            maxHeight: '680px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <EarthGlobe size={600} speed={0.0006} />
+        </div>
+
+        {/* Left gradient so text is readable over globe glow */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(8,10,15,1) 0%, rgba(8,10,15,0.92) 42%, rgba(8,10,15,0.30) 68%, transparent 100%)',
+          pointerEvents: 'none',
+        }} />
+
+        {/* Bottom fade */}
+        <div style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: '240px',
+          background: 'linear-gradient(to top, #080A0F 0%, rgba(8,10,15,0.6) 50%, transparent 100%)',
+          pointerEvents: 'none',
+        }} />
+
+        {/* Text content — left aligned, vertically centred */}
         <div style={{
           position: 'absolute',
-          bottom: '13%', left: '7%',
-          maxWidth: '640px',
+          top: '50%', left: '7%',
+          transform: 'translateY(-50%)',
+          maxWidth: '580px',
         }}>
           <div style={{
             fontFamily: mono, fontSize: '10px', letterSpacing: '0.16em',
-            color: '#5B8FFF', marginBottom: '22px',
+            color: '#5B8FFF', marginBottom: '28px',
             display: 'flex', alignItems: 'center', gap: '10px',
           }}>
             <div style={{ width: '28px', height: '1px', backgroundColor: '#5B8FFF' }} />
@@ -78,24 +121,24 @@ export default function Home() {
 
           <h1 style={{
             fontFamily: syne, fontWeight: 800,
-            fontSize: 'clamp(42px, 6.5vw, 82px)',
+            fontSize: 'clamp(38px, 5.5vw, 72px)',
             lineHeight: 1.0, color: '#FFFFFF',
-            marginBottom: '20px', letterSpacing: '-0.02em',
+            marginBottom: '24px', letterSpacing: '-0.02em',
           }}>
             Clearing the path forward<br />for Humanity&apos;s next steps.
           </h1>
 
           <p style={{
             fontFamily: mono, fontSize: '13px', color: 'rgba(220,225,235,0.50)',
-            lineHeight: 1.7, marginBottom: '10px', maxWidth: '440px',
+            lineHeight: 1.7, marginBottom: '10px', maxWidth: '420px',
             letterSpacing: '0.04em', textTransform: 'uppercase' as const,
           }}>
             The orbit is already broken.
           </p>
 
           <p style={{
-            fontFamily: mono, fontSize: '14px', color: 'rgba(220,225,235,0.62)',
-            lineHeight: 1.75, marginBottom: '40px', maxWidth: '440px',
+            fontFamily: mono, fontSize: '13px', color: 'rgba(220,225,235,0.58)',
+            lineHeight: 1.8, marginBottom: '44px', maxWidth: '420px',
           }}>
             9,000 tonnes. 130 million fragments.<br />
             The Kessler threshold is not a future event.
@@ -136,14 +179,14 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll indicator — bottom right */}
+        {/* Scroll indicator — bottom centre */}
         <div style={{
-          position: 'absolute', bottom: '4%', right: '6%',
-          fontFamily: mono, fontSize: '9px', letterSpacing: '0.14em',
-          color: 'rgba(255,255,255,0.28)',
-          display: 'flex', alignItems: 'center', gap: '8px',
-          writingMode: 'vertical-rl',
+          position: 'absolute', bottom: '4%', left: '50%', transform: 'translateX(-50%)',
+          fontFamily: mono, fontSize: '9px', letterSpacing: '0.16em',
+          color: 'rgba(255,255,255,0.25)',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px',
         }}>
+          <div style={{ width: '1px', height: '32px', background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.25))' }} />
           SCROLL
         </div>
       </section>
@@ -219,13 +262,13 @@ export default function Home() {
         </div>
 
         {/* Right: Earth limb photo */}
-        <div style={{
-          backgroundImage: 'url(/earth-limb.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: '500px',
-          position: 'relative',
-        }}>
+        <div style={{ minHeight: '500px', position: 'relative', overflow: 'hidden' }}>
+          <div className="slow-drift" style={{
+            position: 'absolute', inset: '-8%',
+            backgroundImage: 'url(/earth-limb.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }} />
           {/* Subtle left-edge fade to dark */}
           <div style={{
             position: 'absolute', inset: 0,

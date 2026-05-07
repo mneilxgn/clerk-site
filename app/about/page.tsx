@@ -114,7 +114,7 @@ export default function About() {
 
       {/* ── HERO — full-bleed photo ── */}
       <section style={{ position: 'relative', height: '55vh', minHeight: '420px', overflow: 'hidden' }}>
-        <div style={{
+        <div className="ken-burns" style={{
           position: 'absolute', inset: 0,
           backgroundImage: 'url(/earth-iss.jpg)',
           backgroundSize: 'cover',
