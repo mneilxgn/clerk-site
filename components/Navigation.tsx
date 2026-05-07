@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import ClerkLogo from '@/components/ClerkLogo';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +43,7 @@ export default function Navigation() {
     >
       {/* Wordmark */}
       <Link href="/" style={{ textDecoration: 'none', zIndex: 101, display: 'flex', alignItems: 'center' }}>
-        <ClerkLogo height={42} />
+        <img src="/clerk-logo-dark.png" alt="Clerk" style={{ height: '48px', width: 'auto', display: 'block' }} />
       </Link>
 
       {/* Desktop nav links */}
