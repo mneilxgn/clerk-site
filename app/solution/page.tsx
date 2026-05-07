@@ -1,8 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import ScrollReveal from '@/components/ScrollReveal';
 import Footer from '@/components/Footer';
+
+const OrbitalDemo = dynamic(() => import('@/components/OrbitalDemo'), { ssr: false });
 
 const C = {
   bg: '#0F1219',
@@ -189,9 +192,19 @@ Kepler 13 (Phase1)  $0.02–0.1M     UNLIMITED      NO`}
             <div style={{ fontFamily: mono, fontSize: '11px', letterSpacing: '0.12em', color: C.accent, marginBottom: '16px' }}>
               THE THREE MECHANISMS
             </div>
-            <h2 style={{ fontFamily: syne, fontWeight: 700, fontSize: 'clamp(28px, 4vw, 48px)', lineHeight: 1.1, color: C.textPrimary, marginBottom: '80px' }}>
+            <h2 style={{ fontFamily: syne, fontWeight: 700, fontSize: 'clamp(28px, 4vw, 48px)', lineHeight: 1.1, color: C.textPrimary, marginBottom: '12px' }}>
               Physics, applied.
             </h2>
+            <p style={{ fontFamily: mono, fontSize: '13px', color: C.textTertiary, marginBottom: '48px', maxWidth: '560px', lineHeight: 1.8 }}>
+              Live simulation — select a mechanism to see how each removal method operates in orbit.
+            </p>
+          </ScrollReveal>
+
+          {/* ── Interactive 3D orbital demo ── */}
+          <ScrollReveal delay={100}>
+            <div style={{ marginBottom: '80px' }}>
+              <OrbitalDemo />
+            </div>
           </ScrollReveal>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '100px' }}>
