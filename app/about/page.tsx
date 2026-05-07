@@ -112,23 +112,32 @@ export default function About() {
   return (
     <main style={{ backgroundColor: C.bg, minHeight: '100vh' }}>
 
-      {/* ── HERO ── */}
-      <section style={{ paddingTop: '160px', paddingBottom: '100px', paddingLeft: '40px', paddingRight: '40px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <ScrollReveal>
-            <div style={{ fontFamily: mono, fontSize: '11px', letterSpacing: '0.12em', color: C.accent, marginBottom: '20px' }}>
-              CLERK // WHO WE ARE
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <h1 style={{ fontFamily: syne, fontWeight: 800, fontSize: 'clamp(40px, 6vw, 72px)', lineHeight: 1.05, color: C.textPrimary, maxWidth: '700px' }}>
-              Built by someone who<br />read the physics<br />and couldn&apos;t look away.
-            </h1>
-          </ScrollReveal>
+      {/* ── HERO — full-bleed photo ── */}
+      <section style={{ position: 'relative', height: '55vh', minHeight: '420px', overflow: 'hidden' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'url(/earth-iss.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 60%',
+        }} />
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to right, rgba(8,10,15,0.95) 0%, rgba(8,10,15,0.72) 45%, rgba(8,10,15,0.28) 100%)',
+        }} />
+        <div style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: '160px',
+          background: 'linear-gradient(transparent, #080A0F)', pointerEvents: 'none',
+        }} />
+        <div style={{ position: 'absolute', bottom: '12%', left: '7%', maxWidth: '680px' }}>
+          <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.16em', color: C.accent, marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ width: '22px', height: '1px', backgroundColor: C.accent }} />
+            CLERK // WHO WE ARE
+          </div>
+          <h1 style={{ fontFamily: syne, fontWeight: 800, fontSize: 'clamp(36px, 5.5vw, 66px)', lineHeight: 1.0, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+            Built by someone who read<br />the physics and couldn&apos;t look away.
+          </h1>
         </div>
       </section>
-
-      <div className="section-separator" />
 
       {/* ── MISSION ── */}
       <section style={{ backgroundColor: C.surface, padding: '100px 40px' }}>
@@ -140,21 +149,20 @@ export default function About() {
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <blockquote style={{
-              fontFamily: syne, fontWeight: 700, fontSize: 'clamp(20px, 2.5vw, 28px)',
-              color: C.textPrimary, lineHeight: 1.5, borderLeft: `3px solid ${C.accent}`,
+              fontFamily: syne, fontWeight: 700, fontSize: 'clamp(22px, 2.8vw, 32px)',
+              color: C.textPrimary, lineHeight: 1.4, borderLeft: `3px solid ${C.accent}`,
               paddingLeft: '28px', marginBottom: '48px',
             }}>
-              &ldquo;The orbital kinetic energy of the debris population is approximately 270 terajoules.
-              The energy to solve this problem is already there.&rdquo;
+              &ldquo;Clearing the path forward for Humanity&apos;s next steps.&rdquo;
             </blockquote>
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <p style={{ fontFamily: mono, fontSize: '15px', color: C.textSecondary, lineHeight: 2 }}>
-                Clerk exists because the debris problem passed its own Kessler threshold — the point where the complexity of the situation outpaces the institutional capacity to act through conventional channels.
+                Clerk exists because the debris problem has no natural owner. The 1967 Outer Space Treaty assigns debris to the nation that launched it — and no nation has the incentive to clean up what it cannot profit from.
               </p>
               <p style={{ fontFamily: mono, fontSize: '15px', color: C.textSecondary, lineHeight: 2 }}>
-                We are a physics company. The Kepler 13 system is not a product. It is a permanent answer to a permanent problem, built from principles that Earth&apos;s own geophysics have validated over four billion years.
+                We don&apos;t catch debris. We convince it to fall. Two proven physics principles — laser ablation and gas drag — working as one system. No capture. No contact. No exceptions.
               </p>
               <p style={{ fontFamily: mono, fontSize: '15px', color: C.textSecondary, lineHeight: 2 }}>
                 Our timeline is not a roadmap. It is a statement of what is physically necessary given the current debris growth rate and the lag between orbital insertion and atmospheric decay.

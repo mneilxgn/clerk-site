@@ -156,7 +156,7 @@ export default function Home() {
         backgroundColor: '#0A0D13',
       }}>
         <div className="ticker-inner" style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.12em', color: '#4E5868' }}>
-          {'DEBRIS DENSITY: CRITICAL // ALTITUDE BAND: 500–1000KM // KESSLER INDEX: 0.94 // COLLISION PROBABILITY: RISING // KEPLER 13: PHASE 1 TARGET 2027 // LASER ABLATION: DEMONSTRATED // GAS DRAG: PASSIVE // CONTACT REQUIRED: NONE // DEBRIS DENSITY: CRITICAL // ALTITUDE BAND: 500–1000KM // KESSLER INDEX: 0.94 // COLLISION PROBABILITY: RISING // KEPLER 13: PHASE 1 TARGET 2027 // LASER ABLATION: DEMONSTRATED // GAS DRAG: PASSIVE // CONTACT REQUIRED: NONE //'}
+          {'130 MILLION FRAGMENTS IN LOW EARTH ORBIT // 9,000 TONNES OF DEBRIS // EVERY COLLISION CREATES MORE // NO PHYSICAL CONTACT REQUIRED // KEPLER 13 DEPLOYMENT: 2027 // 130 MILLION FRAGMENTS IN LOW EARTH ORBIT // 9,000 TONNES OF DEBRIS // EVERY COLLISION CREATES MORE // NO PHYSICAL CONTACT REQUIRED // KEPLER 13 DEPLOYMENT: 2027 //'}
         </div>
       </div>
 
@@ -402,7 +402,7 @@ export default function Home() {
                 onMouseEnter={e => { e.currentTarget.style.borderColor = '#5B8FFF'; e.currentTarget.style.color = '#5B8FFF'; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.28)'; e.currentTarget.style.color = '#fff'; }}
               >
-                MEET THE TEAM →
+                MEET THE FOUNDER →
               </Link>
             </div>
           </ScrollReveal>

@@ -16,7 +16,6 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'HOME' },
     { href: '/solution', label: 'SOLUTION' },
     { href: '/solution#technology', label: 'TECHNOLOGY' },
     { href: '/about', label: 'ABOUT' },
