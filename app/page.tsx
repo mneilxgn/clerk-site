@@ -1,13 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import ScrollReveal from '@/components/ScrollReveal';
 import CountUp from '@/components/CountUp';
 import Footer from '@/components/Footer';
-import GlobeErrorBoundary from '@/components/GlobeErrorBoundary';
-
-const EarthGlobe = dynamic(() => import('@/components/EarthGlobe'), { ssr: false });
 
 const mono = 'IBM Plex Mono, monospace';
 const syne = 'Syne, sans-serif';
@@ -40,73 +36,36 @@ export default function Home() {
   return (
     <main style={{ backgroundColor: '#080A0F' }}>
 
-      {/* ── 1. HERO — spinning Earth globe, SpaceX-style ── */}
-      <section style={{ position: 'relative', height: '100vh', minHeight: '720px', overflow: 'hidden', backgroundColor: '#080A0F' }}>
+      {/* ── 1. HERO — full-bleed Earth photo ── */}
+      <section style={{ position: 'relative', height: '100vh', minHeight: '720px', overflow: 'hidden' }}>
 
-        {/* Star field background */}
-        <div style={{
+        {/* Earth photo */}
+        <div className="ken-burns" style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(30,50,100,0.18) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(20,40,80,0.14) 0%, transparent 50%)',
-          pointerEvents: 'none',
+          backgroundImage: 'url(/earth-hero.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 35%',
         }} />
 
-        {/* Static star dots via CSS (lightweight, no canvas) */}
+        {/* Gradient overlay */}
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: `
-            radial-gradient(1px 1px at 15% 22%, rgba(255,255,255,0.55) 0%, transparent 100%),
-            radial-gradient(1px 1px at 72% 8%, rgba(255,255,255,0.45) 0%, transparent 100%),
-            radial-gradient(1px 1px at 88% 38%, rgba(255,255,255,0.5) 0%, transparent 100%),
-            radial-gradient(1px 1px at 5% 65%, rgba(255,255,255,0.4) 0%, transparent 100%),
-            radial-gradient(1px 1px at 45% 12%, rgba(255,255,255,0.6) 0%, transparent 100%),
-            radial-gradient(1px 1px at 60% 80%, rgba(255,255,255,0.35) 0%, transparent 100%),
-            radial-gradient(1px 1px at 33% 90%, rgba(255,255,255,0.45) 0%, transparent 100%),
-            radial-gradient(1.5px 1.5px at 92% 72%, rgba(255,255,255,0.6) 0%, transparent 100%),
-            radial-gradient(1px 1px at 28% 45%, rgba(255,255,255,0.3) 0%, transparent 100%),
-            radial-gradient(1px 1px at 78% 55%, rgba(255,255,255,0.4) 0%, transparent 100%)
-          `,
-          pointerEvents: 'none',
-        }} />
-
-        {/* Spinning Earth — massive, right side, partially bleeds off-screen like SpaceX */}
-        <div
-          className="earth-globe-hero"
-          style={{
-            position: 'absolute',
-            right: '-14%',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            width: '86vh',
-            height: '86vh',
-            minWidth: '560px',
-            minHeight: '560px',
-          }}
-        >
-          <GlobeErrorBoundary>
-            <EarthGlobe />
-          </GlobeErrorBoundary>
-        </div>
-
-        {/* Left gradient so text is readable over globe glow */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(90deg, rgba(8,10,15,1) 0%, rgba(8,10,15,0.92) 42%, rgba(8,10,15,0.30) 68%, transparent 100%)',
+          background: 'linear-gradient(105deg, rgba(8,10,15,0.96) 0%, rgba(8,10,15,0.78) 38%, rgba(8,10,15,0.30) 70%, rgba(8,10,15,0.10) 100%)',
           pointerEvents: 'none',
         }} />
 
         {/* Bottom fade */}
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0, height: '240px',
-          background: 'linear-gradient(to top, #080A0F 0%, rgba(8,10,15,0.6) 50%, transparent 100%)',
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: '280px',
+          background: 'linear-gradient(to top, #080A0F 0%, rgba(8,10,15,0.7) 50%, transparent 100%)',
           pointerEvents: 'none',
         }} />
 
-        {/* Text content — left aligned, vertically centred */}
+        {/* Content — left-aligned, lower third */}
         <div style={{
           position: 'absolute',
-          top: '50%', left: '7%',
-          transform: 'translateY(-50%)',
-          maxWidth: '580px',
+          bottom: '13%', left: '7%',
+          maxWidth: '640px',
         }}>
           <div style={{
             fontFamily: mono, fontSize: '10px', letterSpacing: '0.16em',
@@ -177,14 +136,13 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll indicator — bottom centre */}
+        {/* Scroll indicator */}
         <div style={{
-          position: 'absolute', bottom: '4%', left: '50%', transform: 'translateX(-50%)',
-          fontFamily: mono, fontSize: '9px', letterSpacing: '0.16em',
-          color: 'rgba(255,255,255,0.25)',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px',
+          position: 'absolute', bottom: '4%', right: '6%',
+          fontFamily: mono, fontSize: '9px', letterSpacing: '0.14em',
+          color: 'rgba(255,255,255,0.28)',
+          writingMode: 'vertical-rl',
         }}>
-          <div style={{ width: '1px', height: '32px', background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.25))' }} />
           SCROLL
         </div>
       </section>
