@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import ScrollReveal from '@/components/ScrollReveal';
 import CountUp from '@/components/CountUp';
 import Footer from '@/components/Footer';
+import GlobeErrorBoundary from '@/components/GlobeErrorBoundary';
 
 const EarthGlobe = dynamic(() => import('@/components/EarthGlobe'), { ssr: false });
 
@@ -86,7 +87,9 @@ export default function Home() {
             justifyContent: 'center',
           }}
         >
-          <EarthGlobe size={600} speed={0.0006} />
+          <GlobeErrorBoundary>
+            <EarthGlobe size={600} speed={0.0006} />
+          </GlobeErrorBoundary>
         </div>
 
         {/* Left gradient so text is readable over globe glow */}
